@@ -217,6 +217,16 @@ namespace backofficev2
 
         public bool DeleteImgSet(int id)
         {
+            List<int> dados = this.GetImgsFromImgSet(id);
+
+            foreach(int dado in dados)
+            {
+                if (!this.DeleteImg(dado))
+                {
+                    return false;
+                }
+            }
+
             try
             {
                 this.OpenConnection();
@@ -290,6 +300,28 @@ namespace backofficev2
 
                 return false;
             }
+        }
+
+        public List<int> GetImgsFromImgSet(int id_set)
+        {
+            List<int> lista = new List<int>();
+
+            using (var db = new dominoeng3Entities())
+            {
+                var query = from u in db.img_peca
+                            where u.id_conjunto_pecas == id_set
+                            select u;
+
+                if (query.Count() > 0)
+                {
+                    foreach (var result in query)
+                    {
+                        lista.Add(result.ID);
+                    }
+                }
+            }
+
+            return lista;
         }
 
         public bool DeleteImg(int id)

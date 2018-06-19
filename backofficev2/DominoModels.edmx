@@ -1,0 +1,140 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dominoeng3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="conj_img_pecas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nome_conjunto" Type="varchar" MaxLength="64" Nullable="false" />
+        </EntityType>
+        <EntityType Name="img_peca">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id_conjunto_pecas" Type="int" Nullable="false" />
+          <Property Name="conteudo_arquivo" Type="varbinary(max)" Nullable="false" />
+          <Property Name="peca_num_cima" Type="smallint" Nullable="false" />
+          <Property Name="peca_num_abaixo" Type="smallint" Nullable="false" />
+          <Property Name="nome_arquivo" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_img_peca_conj_img_pecas">
+          <End Role="conj_img_pecas" Type="Self.conj_img_pecas" Multiplicity="1" />
+          <End Role="img_peca" Type="Self.img_peca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="conj_img_pecas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="img_peca">
+              <PropertyRef Name="id_conjunto_pecas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dominoeng3ModelStoreContainer">
+          <EntitySet Name="conj_img_pecas" EntityType="Self.conj_img_pecas" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="img_peca" EntityType="Self.img_peca" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_img_peca_conj_img_pecas" Association="Self.FK_img_peca_conj_img_pecas">
+            <End Role="conj_img_pecas" EntitySet="conj_img_pecas" />
+            <End Role="img_peca" EntitySet="img_peca" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dominoeng3Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="conj_img_pecas">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nome_conjunto" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="img_peca" Relationship="Self.FK_img_peca_conj_img_pecas" FromRole="conj_img_pecas" ToRole="img_peca" />
+        </EntityType>
+        <EntityType Name="img_peca">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id_conjunto_pecas" Type="Int32" Nullable="false" />
+          <Property Name="conteudo_arquivo" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="peca_num_cima" Type="Int16" Nullable="false" />
+          <Property Name="peca_num_abaixo" Type="Int16" Nullable="false" />
+          <Property Name="nome_arquivo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="conj_img_pecas" Relationship="Self.FK_img_peca_conj_img_pecas" FromRole="img_peca" ToRole="conj_img_pecas" />
+        </EntityType>
+        <Association Name="FK_img_peca_conj_img_pecas">
+          <End Role="conj_img_pecas" Type="Self.conj_img_pecas" Multiplicity="1" />
+          <End Role="img_peca" Type="Self.img_peca" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="conj_img_pecas">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="img_peca">
+              <PropertyRef Name="id_conjunto_pecas" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dominoeng3Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="conj_img_pecas" EntityType="Self.conj_img_pecas" />
+          <EntitySet Name="img_peca" EntityType="Self.img_peca" />
+          <AssociationSet Name="FK_img_peca_conj_img_pecas" Association="Self.FK_img_peca_conj_img_pecas">
+            <End Role="conj_img_pecas" EntitySet="conj_img_pecas" />
+            <End Role="img_peca" EntitySet="img_peca" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dominoeng3ModelStoreContainer" CdmEntityContainer="dominoeng3Entities">
+          <EntitySetMapping Name="conj_img_pecas">
+            <EntityTypeMapping TypeName="dominoeng3Model.conj_img_pecas">
+              <MappingFragment StoreEntitySet="conj_img_pecas">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="nome_conjunto" ColumnName="nome_conjunto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="img_peca">
+            <EntityTypeMapping TypeName="dominoeng3Model.img_peca">
+              <MappingFragment StoreEntitySet="img_peca">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="id_conjunto_pecas" ColumnName="id_conjunto_pecas" />
+                <ScalarProperty Name="conteudo_arquivo" ColumnName="conteudo_arquivo" />
+                <ScalarProperty Name="peca_num_cima" ColumnName="peca_num_cima" />
+                <ScalarProperty Name="peca_num_abaixo" ColumnName="peca_num_abaixo" />
+                <ScalarProperty Name="nome_arquivo" ColumnName="nome_arquivo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
