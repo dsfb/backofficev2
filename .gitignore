@@ -1,1 +1,7 @@
 /.project
+*.Cache
+*.exe
+*.dll
+*.config
+*.xml
+*.pdb

@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\dsfb\Documents\Fatec_ADS\6sem\es3\1sem_2018\backofficev2\backofficev2\DominoModels.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\dsfb\git\backofficev2\backofficev2\DominoModels.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

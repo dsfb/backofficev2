@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="dominoeng3Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="conj_img_pecas">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="nome_conjunto" Type="varchar" MaxLength="64" Nullable="false" />
+  </EntityType>
+  <EntityType Name="img_peca">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_conjunto_pecas" Type="int" Nullable="false" />
+    <Property Name="conteudo_arquivo" Type="varbinary(max)" Nullable="false" />
+    <Property Name="peca_num_cima" Type="smallint" Nullable="false" />
+    <Property Name="peca_num_abaixo" Type="smallint" Nullable="false" />
+    <Property Name="nome_arquivo" Type="varchar(max)" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_img_peca_conj_img_pecas">
+    <End Role="conj_img_pecas" Type="Self.conj_img_pecas" Multiplicity="1" />
+    <End Role="img_peca" Type="Self.img_peca" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="conj_img_pecas">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="img_peca">
+        <PropertyRef Name="id_conjunto_pecas" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="dominoeng3ModelStoreContainer">
+    <EntitySet Name="conj_img_pecas" EntityType="Self.conj_img_pecas" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="img_peca" EntityType="Self.img_peca" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_img_peca_conj_img_pecas" Association="Self.FK_img_peca_conj_img_pecas">
+      <End Role="conj_img_pecas" EntitySet="conj_img_pecas" />
+      <End Role="img_peca" EntitySet="img_peca" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
