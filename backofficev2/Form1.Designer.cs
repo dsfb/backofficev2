@@ -68,6 +68,10 @@
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
             this.img_fundo_tabDataGridView = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nome_fundo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.img_fundo_tabBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.img_pecaDataGridView = new System.Windows.Forms.DataGridView();
@@ -110,10 +114,6 @@
             this.conj_img_pecasTableAdapter = new backofficev2.DominoBdDataSetTableAdapters.conj_img_pecasTableAdapter();
             this.img_pecaTableAdapter = new backofficev2.DominoBdDataSetTableAdapters.img_pecaTableAdapter();
             this.img_fundo_tabTableAdapter = new backofficev2.DominoBdDataSetTableAdapters.img_fundo_tabTableAdapter();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nome_fundo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewImageColumn2 = new System.Windows.Forms.DataGridViewImageColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox1.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.administradoresDataGridView)).BeginInit();
@@ -152,7 +152,7 @@
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.administradoresDataGridView);
             this.groupBox1.Controls.Add(this.btn_remove_admin);
-            this.groupBox1.Location = new System.Drawing.Point(38, 12);
+            this.groupBox1.Location = new System.Drawing.Point(20, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(688, 212);
             this.groupBox1.TabIndex = 3;
@@ -517,6 +517,32 @@
             this.img_fundo_tabDataGridView.Name = "img_fundo_tabDataGridView";
             this.img_fundo_tabDataGridView.Size = new System.Drawing.Size(187, 173);
             this.img_fundo_tabDataGridView.TabIndex = 13;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "ID";
+            this.dataGridViewTextBoxColumn12.HeaderText = "ID";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.ReadOnly = true;
+            // 
+            // nome_fundo
+            // 
+            this.nome_fundo.DataPropertyName = "nome_fundo";
+            this.nome_fundo.HeaderText = "nome_fundo";
+            this.nome_fundo.Name = "nome_fundo";
+            // 
+            // dataGridViewImageColumn2
+            // 
+            this.dataGridViewImageColumn2.DataPropertyName = "conteudo_arquivo";
+            this.dataGridViewImageColumn2.HeaderText = "conteudo_arquivo";
+            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
+            this.dataGridViewImageColumn2.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "nome_arquivo";
+            this.dataGridViewTextBoxColumn13.HeaderText = "nome_arquivo";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
             // 
             // img_fundo_tabBindingSource
             // 
@@ -885,40 +911,19 @@
             // 
             this.img_fundo_tabTableAdapter.ClearBeforeFill = true;
             // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "ID";
-            this.dataGridViewTextBoxColumn12.HeaderText = "ID";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.ReadOnly = true;
-            // 
-            // nome_fundo
-            // 
-            this.nome_fundo.DataPropertyName = "nome_fundo";
-            this.nome_fundo.HeaderText = "nome_fundo";
-            this.nome_fundo.Name = "nome_fundo";
-            // 
-            // dataGridViewImageColumn2
-            // 
-            this.dataGridViewImageColumn2.DataPropertyName = "conteudo_arquivo";
-            this.dataGridViewImageColumn2.HeaderText = "conteudo_arquivo";
-            this.dataGridViewImageColumn2.Name = "dataGridViewImageColumn2";
-            this.dataGridViewImageColumn2.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "nome_arquivo";
-            this.dataGridViewTextBoxColumn13.HeaderText = "nome_arquivo";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(749, 825);
+            this.AutoScroll = true;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(1228, 749);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
             this.Name = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela principal do BackOffice";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
