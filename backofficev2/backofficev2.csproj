@@ -106,11 +106,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DominoModels.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="FormAddUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormAddUser.Designer.cs">
+      <DependentUpon>FormAddUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormEditAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormEditAdmin.Designer.cs">
+      <DependentUpon>FormEditAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormMain.Designer.cs">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </Compile>
     <Compile Include="FormLogin.cs">
       <SubType>Form</SubType>
@@ -124,8 +136,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormAddUser.resx">
+      <DependentUpon>FormAddUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormEditAdmin.resx">
+      <DependentUpon>FormEditAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormMain.resx">
+      <DependentUpon>FormMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormLogin.resx">
       <DependentUpon>FormLogin.cs</DependentUpon>

@@ -56,7 +56,7 @@ namespace backofficev2
             else
             {
                 this.Hide();
-                Form1 f = new Form1();
+                FormMain f = new FormMain();
                 f.FormClosed += (s, args) => this.Close();
                 f.Show();
             }
