@@ -71,12 +71,19 @@ namespace backofficev2
             }
         }
 
+        private void MainPage_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            // your code here to do something before closing the form
+        }
+
         private void btn_add_admin_Click(object sender, EventArgs e)
         {
             FormAddUser formAddUser = new FormAddUser();
             formAddUser.Show();
+            // formAddUser.FormClosed += MainPage_FormClosed; <= Error! #TODO: Fix this!
             return;
-             
+
+            // #TODO: Delete all lines from here until the end of this method!
             string nome = this.txtNome.Text;
 
             if (nome.Length == 0)

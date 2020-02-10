@@ -180,6 +180,7 @@
             // 
             // btn_add_admin
             // 
+            this.btn_add_admin.AutoSize = true;
             this.btn_add_admin.Location = new System.Drawing.Point(9, 19);
             this.btn_add_admin.Name = "btn_add_admin";
             this.btn_add_admin.Size = new System.Drawing.Size(75, 23);
@@ -911,7 +912,7 @@
             // 
             this.img_fundo_tabTableAdapter.ClearBeforeFill = true;
             // 
-            // Form1
+            // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -922,7 +923,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
-            this.Name = "Form1";
+            this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tela principal do BackOffice";
             this.Load += new System.EventHandler(this.Form1_Load);
