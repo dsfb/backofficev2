@@ -1,6 +1,6 @@
 ﻿namespace backofficev2
 {
-    partial class FormAddUser
+    partial class FormAddAdmin
     {
         /// <summary>
         /// Required designer variable.
@@ -71,7 +71,7 @@
             this.btn_add_admin.Name = "btn_add_admin";
             this.btn_add_admin.Size = new System.Drawing.Size(125, 23);
             this.btn_add_admin.TabIndex = 26;
-            this.btn_add_admin.Text = "Add";
+            this.btn_add_admin.Text = "Adicionar";
             this.btn_add_admin.UseVisualStyleBackColor = true;
             this.btn_add_admin.Click += new System.EventHandler(this.btn_add_admin_Click);
             // 
@@ -82,16 +82,16 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(38, 13);
             this.label2.TabIndex = 28;
-            this.label2.Text = "Name:";
+            this.label2.Text = "Nome:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(6, 63);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(56, 13);
+            this.label3.Size = new System.Drawing.Size(41, 13);
             this.label3.TabIndex = 29;
-            this.label3.Text = "Password:";
+            this.label3.Text = "Senha:";
             // 
             // label4
             // 
@@ -116,7 +116,7 @@
             this.groupBox1.Size = new System.Drawing.Size(285, 125);
             this.groupBox1.TabIndex = 31;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Add New User";
+            this.groupBox1.Text = "Adicionar um Admin";
             // 
             // btn_cancel
             // 
@@ -124,11 +124,11 @@
             this.btn_cancel.Name = "btn_cancel";
             this.btn_cancel.Size = new System.Drawing.Size(139, 23);
             this.btn_cancel.TabIndex = 32;
-            this.btn_cancel.Text = "Cancel";
+            this.btn_cancel.Text = "Cancelar";
             this.btn_cancel.UseVisualStyleBackColor = true;
             this.btn_cancel.Click += new System.EventHandler(this.btn_cancel_Click);
             // 
-            // FormAddUser
+            // FormAddAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -138,8 +138,8 @@
             this.Controls.Add(this.btn_cancel);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_add_admin);
-            this.Name = "FormAddUser";
-            this.Text = "Add a new User";
+            this.Name = "FormAddAdmin";
+            this.Text = "Adicionar um Admin";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

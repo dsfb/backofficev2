@@ -11,6 +11,6 @@ C:\Users\dsfb\git\backofficev2\backofficev2\obj\x86\Release\backofficev2.csproj.
 C:\Users\dsfb\git\backofficev2\backofficev2\obj\x86\Release\backofficev2.exe
 C:\Users\dsfb\git\backofficev2\backofficev2\obj\x86\Release\backofficev2.pdb
 C:\Users\dsfb\git\backofficev2\backofficev2\obj\x86\Release\backofficev2.csprojResolveAssemblyReference.cache
-C:\Users\dsfb\git\backofficev2\backofficev2\obj\x86\Release\backofficev2.FormAddUser.resources
 C:\Users\dsfb\git\backofficev2\backofficev2\obj\x86\Release\backofficev2.FormEditAdmin.resources
 C:\Users\dsfb\git\backofficev2\backofficev2\obj\x86\Release\backofficev2.FormMain.resources
+C:\Users\dsfb\git\backofficev2\backofficev2\obj\x86\Release\backofficev2.FormAddAdmin.resources

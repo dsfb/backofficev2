@@ -76,6 +76,7 @@
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(100, 20);
             this.txtNome.TabIndex = 3;
+            this.txtNome.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txtSenha
             // 
@@ -84,6 +85,7 @@
             this.txtSenha.PasswordChar = '*';
             this.txtSenha.Size = new System.Drawing.Size(100, 20);
             this.txtSenha.TabIndex = 4;
+            this.txtSenha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btnEnter
             // 
@@ -113,6 +115,9 @@
             // 
             this.tableAdapterManager.administradoresTableAdapter = this.administradoresTableAdapter;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.conj_img_pecasTableAdapter = null;
+            this.tableAdapterManager.img_fundo_tabTableAdapter = null;
+            this.tableAdapterManager.img_pecaTableAdapter = null;
             this.tableAdapterManager.partidaTableAdapter = null;
             this.tableAdapterManager.pecaTableAdapter = null;
             this.tableAdapterManager.playerTableAdapter = null;

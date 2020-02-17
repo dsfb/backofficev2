@@ -16,12 +16,15 @@ namespace backofficev2
 {
     public partial class FormMain : Form
     {
+        private static FormMain instance = null;
+
         private BackOfficeHandler bo = new BackOfficeHandler();
         
         public FormMain()
         {
             InitializeComponent();
             this.numUpDownSetImg.Maximum = decimal.MaxValue;
+            instance = this;
         }
 
         private void btnfindbackground_Click(object sender, EventArgs e)
@@ -71,70 +74,18 @@ namespace backofficev2
             }
         }
 
-        private void MainPage_FormClosed(object sender, FormClosedEventArgs e)
+        public static void refresh_admin_table(String sender)
         {
-            // your code here to do something before closing the form
+            if (sender.Equals("FormAddUser"))
+            {
+                instance.administradoresTableAdapter.Fill(instance.dominoBdDataSet.administradores);                
+            }
         }
 
         private void btn_add_admin_Click(object sender, EventArgs e)
         {
-            FormAddUser formAddUser = new FormAddUser();
+            FormAddAdmin formAddUser = new FormAddAdmin();
             formAddUser.Show();
-            // formAddUser.FormClosed += MainPage_FormClosed; <= Error! #TODO: Fix this!
-            return;
-
-            // #TODO: Delete all lines from here until the end of this method!
-            string nome = this.txtNome.Text;
-
-            if (nome.Length == 0)
-            {
-                MessageBox.Show("Erro ao inserir novo registro de Administrador: Nome de Administrador não fornecido!");
-                return;
-            }
-
-            if (!this.IsValidAdminName(nome))
-            {
-                MessageBox.Show("Erro ao inserir novo registro de Administrador: Nome pré-existente de Administrador!");
-                return;
-            }
-
-            string senha = this.txtSenha.Text;
-            int tamanho_maximo_senha = 25;
-
-            if (senha.Length == 0 || senha.Length > tamanho_maximo_senha)
-            {
-                MessageBox.Show("Erro ao inserir novo registro de Administrador: Senha inválida (com mais de 25 caracteres!) ou não preenchida!");
-                return;
-            }
-
-            string email = this.txtEmail.Text;
-
-            if (this.IsInvalidEmail(email))
-            {
-                MessageBox.Show("Erro ao inserir novo registro de Administrador: Endereço de e-mail inválido ou não fornecido!");
-                return;
-            }
-
-            try
-            {
-                if (!this.bo.InsertAdmin(nome, email, senha))
-                {
-                    string erro = this.bo.GetErrorMessage();
-                    MessageBox.Show("Erro ao inserir novo registro de Administrador: " + erro);
-                }
-                else
-                {
-                    this.administradoresTableAdapter.Fill(this.dominoBdDataSet.administradores);
-                    MessageBox.Show("Novo registro de administrador adicionado com sucesso!");
-                    this.txtNome.Text = "";
-                    this.txtSenha.Text = "";
-                    this.txtEmail.Text = "";
-                }
-            }
-            catch (Exception ex) when (ex is FormatException || ex is OverflowException)
-            {
-                MessageBox.Show("Erro ao inserir novo registro de Jogador: insira um valor válido de idade!");
-            }
         }
 
         private DataRow GetSelectedDataRowAdminBd(string id)
@@ -250,13 +201,31 @@ namespace backofficev2
 
         private void btn_remove_admin_Click(object sender, EventArgs e)
         {
-            string idRemove = this.txtIdRemove.Text;
-
-            if (idRemove.Length == 0)
+            try
             {
-                MessageBox.Show("Erro ao carregar os dados de remoção de administrador! Preencha o ID do registro de administrador que será removido!");
+                if (this.administradoresDataGridView.SelectedRows.Count > 0)
+                {
+                    MessageBox.Show("O ID selecionado eh: " + this.administradoresDataGridView.SelectedRows[0].Cells[0].Value.ToString());
+                    return;
+                }
+                else if (this.administradoresDataGridView.SelectedCells.Count > 0)
+                {
+                    MessageBox.Show("O ID selecionado eh: " + this.administradoresDataGridView.SelectedCells[0].OwningRow.Cells[0].Value.ToString());
+                    return;
+                }
+                else
+                {
+                    MessageBox.Show("Selecione somente um único ID de admin a ser removido!");
+                    return;
+                }
+            } catch (System.NullReferenceException)
+            {
+                MessageBox.Show("Selecione somente um único ID válido de admin a ser removido!");
                 return;
             }
+            
+            
+            string idRemove = this.txtIdRemove.Text;
 
             int id = -1;
             if (Int32.TryParse(idRemove, out id))

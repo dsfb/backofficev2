@@ -9,11 +9,11 @@ using System.Windows.Forms;
 
 namespace backofficev2
 {
-    public partial class FormAddUser : Form
+    public partial class FormAddAdmin : Form
     {
         private BackOfficeHandler bo = new BackOfficeHandler();
 
-        public FormAddUser()
+        public FormAddAdmin()
         {
             InitializeComponent();
         }
@@ -57,7 +57,7 @@ namespace backofficev2
                 }
                 else
                 {
-                    MessageBox.Show("Novo registro de administrador adicionado com sucesso!");
+                    FormMain.refresh_admin_table("FormAddUser");
                     this.Close();
                 }
             }
@@ -72,16 +72,6 @@ namespace backofficev2
         private void btn_cancel_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        internal void FormClosed()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal void FormClosing()
-        {
-            throw new NotImplementedException();
-        }
+        }        
     }
 }
